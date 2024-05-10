@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 @RestController
@@ -43,7 +44,16 @@ public class Welcome {
     UserTemplate user2 = new UserTemplate("2", "wahid", "cedf");
     UserTemplate user3 = new UserTemplate("3", "kamal", "xyz");
 
+
     List<UserTemplate> userList = new ArrayList<>();
+
+    List<Integer> list = new ArrayList<>();
+    List<Integer> list1 = new LinkedList<>();
+
+    List<List<Integer>> m_list = new ArrayList<>();
+    m_list.add(list);
+    m_list.add(list1);
+
     userList.add(user1);
     userList.add(user2);
     userList.add(user3);
