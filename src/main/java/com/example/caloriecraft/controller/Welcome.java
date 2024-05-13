@@ -16,6 +16,7 @@ import java.util.List;
 @RequestMapping("/api")
 public class Welcome {
 
+
   @GetMapping("/welcome")
   public String welcome(@RequestParam String name){
     return "welcome " + name;
