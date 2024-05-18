@@ -3,6 +3,7 @@ package com.example.caloriecraft.controller;
 import com.example.caloriecraft.domain.MoviesTemplate;
 import com.example.caloriecraft.service.MovieExecutionService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -28,7 +29,7 @@ public class MovieExecutionController {
     }
 
     @PostMapping("/save-movie")
-    public MoviesTemplate addMovies(@RequestBody MoviesTemplate movie) {
+    public ResponseEntity<?> addMovies(@RequestBody MoviesTemplate movie) {
         return movieExecutionService.addMovie(movie);
     }
 }

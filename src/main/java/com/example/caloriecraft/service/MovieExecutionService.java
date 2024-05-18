@@ -1,6 +1,9 @@
 package com.example.caloriecraft.service;
 
+import com.example.caloriecraft.config.ApiResponse;
 import com.example.caloriecraft.domain.MoviesTemplate;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.GetMapping;
 
@@ -29,10 +32,14 @@ public class MovieExecutionService {
         return movieList;
     }
 
-    public MoviesTemplate addMovie(MoviesTemplate movie) {
+    public ResponseEntity<?> addMovie(MoviesTemplate movie) {
+        for (MoviesTemplate m : movieList) {
+            if (m.getName().equals(movie.getName())) {
+                return new ResponseEntity<>(new ApiResponse("Movie already exists", HttpStatus.BAD_REQUEST), HttpStatus.BAD_REQUEST);
+            }
+        }
         movieList.add(movie);
-        return movie;
+        return new ResponseEntity<>(new ApiResponse("Movie successfully added"), HttpStatus.CREATED);
     }
-
 
 }
