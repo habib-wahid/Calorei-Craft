@@ -10,9 +10,9 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 public class UserTemplate {
-  private String id;
-  private String name;
-  private String address;
+    private String id;
+    private String name;
+    private String address;
 
 //  UserTemplate(String id, String name, String address){
 //    this.id = id;
