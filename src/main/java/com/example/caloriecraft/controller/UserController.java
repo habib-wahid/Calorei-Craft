@@ -1,11 +1,10 @@
 package com.example.caloriecraft.controller;
 
 import com.example.caloriecraft.dto.UserDTO;
+import com.example.caloriecraft.entity.Users;
 import com.example.caloriecraft.service.UserService;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -16,7 +15,6 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class UserController {
 
-
   private final UserService userService;
 
   @GetMapping("/users")
@@ -24,5 +22,23 @@ public class UserController {
     return userService.getAllUser();
   }
 
-  // Rest of the the CRUDS
+  @PostMapping("/users/register")
+  UserDTO createUser(@RequestBody UserDTO userDTO){
+      return userService.createUser(userDTO);
+  }
+
+  @GetMapping("/users/{id}")
+  public UserDTO getUserById(@PathVariable Long id) {
+      return userService.getUserById(id);
+  }
+
+  @DeleteMapping("/users/{id}")
+  public void deleteUser(@PathVariable Long id) {
+      userService.deleteUser(id);
+  }
+
+  @PutMapping("/users/{id}")
+  public UserDTO updateUser(@PathVariable Long id, @RequestBody UserDTO userDTO) {
+      return userService.updateUser(id, userDTO);
+  }
 }

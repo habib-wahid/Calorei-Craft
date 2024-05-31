@@ -2,14 +2,36 @@ GET http://localhost:8080/api/users
 Accept: application/json
 
 ###
-POST http://localhost:8080/api/registration/save
+GET http://localhost:8080/api/users/1
+Accept: application/json
+
+###
+POST http://localhost:8080/api/users/register
 Content-Type: application/json
 
 {
   "name": "habib123",
+  "username": "habib123",
   "email": "xyz@gmail.com",
   "phone": "3224323",
-  "address": "Bashundhara123"
+  "address": "Bashundhara123",
+  "password": "123456"
 }
 
 ###
+DELETE http://localhost:8080/api/users/1
+Accept: application/json
+
+###
+PUT http://localhost:8080/api/users/1
+Content-Type: application/json
+
+{
+  "name": "habib",
+  "username": "habiasfb",
+  "email": "xyzasfaf@gmail.com",
+  "phone": "3224323123",
+  "address": "Bashundhara123",
+  "password": "abCD*#/-1"
+}
+
