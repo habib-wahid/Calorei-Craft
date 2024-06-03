@@ -43,7 +43,9 @@ public class UserService {
   public UserDTO createUser(UserDTO userDTO) {
     Users user = new Users();
     if (usersCommon.checkIfDuplicateUserByUserName(userDTO.getUsername()) || usersCommon.checkIfDuplicateUserByEmail(userDTO.getEmail())) {
-        throw new DuplicateResourceException("User already exists");
+        UserDTO dto = new UserDTO();
+        dto.setErrorMsg("Duplicate User exist");
+        return dto;
     }
     usersCommon.validateUserInfo(userDTO.getName(), userDTO.getEmail(), userDTO.getPhone(), userDTO.getAddress(), userDTO.getPassword());
     user.setName(userDTO.getName());
@@ -62,12 +64,12 @@ public class UserService {
     }
 
     private UserDTO convertToUserDto(Users user) {
-        UserDTO userDTO = new UserDTO();
-        userDTO.setId(user.getId());
-        userDTO.setName(user.getName());
-        userDTO.setEmail(user.getEmail());
-        userDTO.setAddress(user.getAddress());
-        return userDTO;
+       return UserDTO.builder()
+          .id(user.getId())
+          .name(user.getName())
+          .email(user.getEmail())
+          .address(user.getAddress())
+          .build();
     }
 
     public void deleteUser(Long id) {

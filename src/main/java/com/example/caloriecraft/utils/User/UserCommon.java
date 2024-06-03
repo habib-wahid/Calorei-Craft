@@ -3,9 +3,9 @@ package com.example.caloriecraft.utils.User;
 import com.example.caloriecraft.repository.UserRepository;
 import com.example.caloriecraft.utils.exception.*;
 import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
-@Component
+@Service
 @RequiredArgsConstructor
 public class UserCommon {
     private final UserRepository userRepository;

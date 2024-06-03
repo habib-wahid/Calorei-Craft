@@ -10,12 +10,12 @@ POST http://localhost:8080/api/users/register
 Content-Type: application/json
 
 {
-  "name": "habib123",
-  "username": "habib123",
-  "email": "xyz@gmail.com",
-  "phone": "3224323",
+  "name": "Ashiq",
+  "username": "Ashiq123",
+  "email": "abc@gmail.com",
+  "phone": "3224323345",
   "address": "Bashundhara123",
-  "password": "123456"
+  "password": "1234567$a"
 }
 
 ###
